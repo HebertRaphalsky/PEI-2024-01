@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author romulo
  */
 @RestController
-@RequestMapping("/admin/usuario")
+@RequestMapping("/admin/cadastro")
 public class UsuarioController {
 
  /*

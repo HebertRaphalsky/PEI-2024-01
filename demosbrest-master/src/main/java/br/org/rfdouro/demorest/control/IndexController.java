@@ -13,9 +13,5 @@ public class IndexController {
   return "index";
  }
 
- @GetMapping("/naoautorizado")
- public String naoautorizado(){
-  return "naoautorizado";
- }
 
 }
