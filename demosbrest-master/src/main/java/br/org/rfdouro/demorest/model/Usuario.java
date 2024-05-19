@@ -38,8 +38,9 @@ public class Usuario implements Serializable {
  private String login;
  private String password;
  private String nome;
- private String email;
- private String telefone;
+ private String sobrenome;
+ private String curso;
+ private String periodo;
 
 
  /**
