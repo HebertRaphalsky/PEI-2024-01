@@ -1,11 +1,6 @@
 package br.org.rfdouro.demorest.model;
 
-import java.util.List;
-
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,16 +22,11 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor @AllArgsConstructor
-public class Projeto {
+public class Curso {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
- private String descricao;
- private String[] alunos;
- private String professorRepresentante;
-
- @ManyToAny(fetch = FetchType.EAGER)
- List<Usuario> alunosMembros;
+ private String curso;
 
 
 }

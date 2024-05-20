@@ -1,8 +1,15 @@
 package br.org.rfdouro.demorest.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -50,4 +57,10 @@ public class Usuario implements Serializable {
   * "ADMIN,ALUNO,TAREFA,ALUNO,CONVIDADO"
   */
  private String permissoes;
+
+ @JsonIgnore
+ @ManyToAny(fetch = FetchType.LAZY)
+ List<Projeto> projetosMembros;
+
+ TIPOUSUARIO tipo;
 }

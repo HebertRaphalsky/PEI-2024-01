@@ -1,9 +1,7 @@
 package br.org.rfdouro.demorest.control;
 
-import br.org.rfdouro.demorest.model.TIPOUSUARIO;
-import br.org.rfdouro.demorest.model.Usuario;
-import br.org.rfdouro.demorest.model.UsuarioRepository;
-
+import br.org.rfdouro.demorest.model.Curso;
+import br.org.rfdouro.demorest.model.CursoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -21,27 +19,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @author romulo
  */
 @RestController
-@RequestMapping("/admin/cadastro")
-public class UsuarioController {
+@RequestMapping("/admin/curso")
+public class CursoController {
 
  /*
  insere automaticamente um repositório de dados para usaurios
   */
  @Autowired
- UsuarioRepository repository;
+ CursoRepository repository;
 
  /*
  método que retorna a listagem de usuarios ordenada por login
  atende no endpoint /usuario com verbo GET
   */
  @GetMapping({"", "/"})
- public List<Usuario> getUsuarios() {
-  return repository.findAll(Sort.by("login"));
- }
-
- @GetMapping("/portipo")
- public List<Usuario> getUsuarios(TIPOUSUARIO tipousuario) {
-  return repository.findAllByTipoOrderByLogin(tipousuario);
+ public List<Curso> getCursos() {
+  return repository.findAll(Sort.by("curso"));
  }
 
  /*
@@ -52,8 +45,8 @@ public class UsuarioController {
  serão enviados no corpo da requisição (em JSON)
   */
  @PostMapping({"", "/"})
- public Usuario insere(@RequestBody Usuario usuario) {
-  return repository.save(usuario);
+ public Curso insere(@RequestBody Curso curso) {
+  return repository.save(curso);
  }
 
  /*
@@ -66,9 +59,9 @@ public class UsuarioController {
  serão enviados no corpo da requisição (em JSON)
   */
  @PutMapping({"", "/"})
- public Usuario atualiza(@RequestBody Usuario usuario) {
-  if (usuario.getId() != null) {
-   return repository.save(usuario);
+ public Curso atualiza(@RequestBody Curso curso) {
+  if (curso.getId() != null) {
+   return repository.save(curso);
   }
   return null;
  }
