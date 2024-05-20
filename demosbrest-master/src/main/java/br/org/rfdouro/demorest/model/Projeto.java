@@ -1,6 +1,11 @@
 package br.org.rfdouro.demorest.model;
 
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,6 +34,9 @@ public class Projeto {
  private String descricao;
  private String[] alunos;
  private String professorRepresentante;
+
+ @ManyToAny(fetch = FetchType.EAGER)
+ List<Usuario> alunosMembros;
 
 
 }

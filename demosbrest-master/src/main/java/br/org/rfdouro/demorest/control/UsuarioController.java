@@ -1,5 +1,6 @@
 package br.org.rfdouro.demorest.control;
 
+import br.org.rfdouro.demorest.model.TIPOUSUARIO;
 import br.org.rfdouro.demorest.model.Usuario;
 import br.org.rfdouro.demorest.model.UsuarioRepository;
 
@@ -36,6 +37,11 @@ public class UsuarioController {
  @GetMapping({"", "/"})
  public List<Usuario> getUsuarios() {
   return repository.findAll(Sort.by("login"));
+ }
+
+ @GetMapping("/portipo")
+ public List<Usuario> getUsuarios(TIPOUSUARIO tipousuario) {
+  return repository.findAllByTipoOrderByLogin(tipousuario);
  }
 
  /*
